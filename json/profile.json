@@ -1,0 +1,170 @@
+[
+    {
+        "title": "基本情報",
+        "label": "basic",
+        "name": "",
+        "age": "",
+        "birthday": "",
+        "image": "",
+        "comment": "<p>大学でディジタル全般を勉強し、2014年10月に株式会社東名に入社後、9年以上、HTMLコーダーを担当。</p><p>100件以上の新規サイトのコーディング業務、うちレスポンシブは40件以上、またCMS構築、PHPやjQueryによる簡単な開発やバグの修復、メールフォームやカートシステムの修復、バナー作成も経験し、最近の業務ではWordPressでの投稿や構築、テンプレート変更などに携わる。<br>また迅速化・効率化を図り、ホバーアクションなどのエフェクト、タブレットを考慮したレイアウトやUI/UXに努める。</p><p>プライベートでは大学在学中からさまざまな資格を取得し、言語では以前はPHP、MySQL、最近では少しずつ、React、Rubyに注力し、Vue.jsでポートフォリオサイトを制作。</p>",
+        "language": "HTML5, CSS3, sass, JSON, SVG, jQuery, Vue.js, particles.js, Google App Script"
+    },
+    {
+        "title": "外部サイト",
+        "label": "outside",
+        "items": [
+            {
+                "title": "GitHub",
+                "label": "github",
+                "url": "https://github.com/kenji88s"
+            },
+            {
+                "title": "大学課題",
+                "label": "university",
+                "url": "https://drive.google.com/open?id=1Y5PupiAx41854810Ad61s5-G-Xfkyl7X"
+            }
+        ]
+    },
+    {
+        "title": "言語・フレームワーク、CMS",
+        "label": "program",
+        "items": [
+            {
+                "title": "HTML",
+                "period": "大学1年、趣味4年、業務7年"
+            },
+            {
+                "title": "CSS",
+                "period": "大学1年、趣味4年、業務7年"
+            },
+            {
+                "title": "scss",
+                "period": "業務2年"
+            },
+            {
+                "title": "JavaScript（jQuery）",
+                "period": "趣味4年、業務7年"
+            },
+            {
+                "title": "PHP",
+                "period": "趣味3年、業務7年"
+            },
+            {
+                "title": "MySQL",
+                "period": "趣味3年"
+            },
+            {
+                "title": "Vue.js",
+                "period": "趣味4ヶ月"
+            },
+            {
+                "title": "ActoionScript",
+                "period": "大学1年"
+            },
+            {
+                "title": "Movable Type",
+                "period": "業務7年"
+            },
+            {
+                "title": "WordPress",
+                "period": "業務1年"
+            }
+        ]
+    },
+    {
+        "title": "オーサリングソフト",
+        "label": "authoring",
+        "items": [
+            {
+                "title": "Illustrator",
+                "period": "大学4年、趣味2年、業務7年（基礎程度）"
+            },
+            {
+                "title": "Photoshop",
+                "period": "大学4年、趣味2年、業務7年（基礎程度）"
+            },
+            {
+                "title": "DreamWeaver",
+                "period": "大学1年、趣味4年、業務7年"
+            },
+            {
+                "title": "Flash",
+                "period": "大学2年"
+            },
+            {
+                "title": "After Effects",
+                "period": "大学3年、趣味3年"
+            },
+            {
+                "title": "Premire Pro",
+                "period": "大学1年"
+            },
+            {
+                "title": "Maya",
+                "period": "大学3年、趣味2年"
+            },
+            {
+                "title": "VS code",
+                "period": "業務2年"
+            }
+        ]
+    },
+    {
+        "title": "取得資格",
+        "label": "qualification",
+        "items": [
+            {
+                "title": "普通自動車第1種運転免許",
+                "period": "2007-08-29"
+            },
+            {
+                "title": "日本漢字能力検定2級",
+                "period": "2009-07"
+            },
+            {
+                "title": "CG-ARTS クリエイティブマイスター",
+                "period": "2016"
+            },
+            {
+                "title": "CG-ARTS ディジタルメディアマイスター",
+                "period": "2016"
+            },
+            {
+                "title": "HTML5プロフェッショナル認定資格レベル1",
+                "period": "2018-04-12"
+            },
+            {
+                "title": "PHP5技術者認定初級試験",
+                "period": "2018-04-10"
+            },
+            {
+                "title": "CGクリエイター検定ディジタル映像部門3級",
+                "period": "2009-08-07"
+            },
+            {
+                "title": "CGクリエイター検定ディジタル映像部門2級",
+                "period": "2009-12-22"
+            },
+            {
+                "title": "CGクリエイター検定Webデザイン部門ベーシック",
+                "period": "2011-08-02"
+            },
+            {
+                "title": "CGARTS Webデザイナー検定エキスパート",
+                "period": "2016-12-20"
+            },
+            {
+                "title": "CGARTS CGエンジニア検定ベーシック",
+                "period": "2016-08-04"
+            },
+            {
+                "title": "CGARTS マルチメディア検定ベーシック",
+                "period": "2015-12-24"
+            },
+            {
+                "title": "CGARTS マルチメディア検定エキスパート",
+                "period": "2016-08-04"
+            }
+        ]
+    }
+]

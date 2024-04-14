@@ -1,0 +1,466 @@
+@charset "utf-8";
+@import "variables";
+.loading_area {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #121212;
+  z-index: 20;
+  &_text {
+    position: relative;
+    overflow: hidden;
+    @include phoneMax {
+      top: -2vw;
+      font-size: 10vw;
+    }
+    @include tabletMin {
+      top: -20px;
+      padding: 0 20px;
+      font-size: 5rem;
+    }
+    p {
+      text-shadow: 0px -11px 10px rgba(63, 62, 62, 0.9);
+      font-family: $base_font_style;
+      animation: moveText 3s 0s infinite;
+    }
+  }
+}
+
+.lang_select {
+  margin-bottom: 40px;
+  &_text {
+    font-weight: bold;
+    margin: 0 20px 25px;
+    @include widthMax(375px) {
+      font-size: 7vw;
+    }
+    @include widthMin(375px) {
+      font-size: 2.7rem;
+    }
+  }
+  &_btns {
+    display: table;
+    margin: 0 auto;
+    a {
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100px;
+      min-height: 50px;
+      line-height: 1;
+      cursor: pointer;
+      position: relative;
+      @include hover_target {
+        &::after {
+          content: "";
+          height: 0;
+          left: 5px;
+          right: 100%;
+          bottom: 0;
+          border-bottom: 1px dashed #fff;
+          position: absolute;
+          transition: right 0.5s 0s;
+        }
+      }
+      @include hover_action {
+        &::after {
+          right: 5px;
+        }
+      }
+    }
+  }
+}
+
+.overlay_detail {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 20;
+  overflow-y: scroll;
+  @include tabletMax {
+    background: rgba(0, 0, 0, 0.9);
+  }
+  &_outer {
+    @include computerMin {
+      position: relative;
+      min-height: 100vh;
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: -1;
+        background: rgba(0, 0, 0, 0.9);
+        animation: scaleBg 0.15s 0s forwards cubic-bezier(0.21, 0.03, 0.42, 0.13);
+      }
+    }
+  }
+  &_icon {
+    text-align: right;
+    @include phoneMax {
+      margin-bottom: 8vw;
+    }
+    @include tabletMin {
+      margin-bottom: 40px;
+    }
+    a {
+      display: inline-block;
+      vertical-align: top;
+      cursor: pointer;
+      @include phoneMax {
+        width: 15vw;
+        padding: 1.5vw;
+      }
+      @include tabletMin {
+        width: 66px;
+        padding: 8px;
+      }
+    }
+  }
+  &_contents {
+    @include phoneMax {
+      padding: 7.5vw 5vw 20vw;
+    }
+    @include tabletWithin {
+      padding: 25px 5vw 80px;
+    }
+    @include computerMin {
+      padding: 50px 48px 120px;
+      margin: 0 auto;
+    }
+    @include computerWithin {
+      max-width: 1200px;
+    }
+    @include desktopMin {
+      width: 1296px;
+    }
+  }
+  &_btn {
+    a {
+      @include phoneMax {
+        width: calc(100% - 20vw);
+        min-height: 12vw;
+        font-size: 1.55rem;
+      }
+      @include tabletMin {
+        width: 200px;
+        min-height: 50px;
+      }
+      @include tabletMax {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        cursor: pointer;
+        margin: 0 auto;
+        line-height: 1;
+        background: #48504a;
+        border-radius: 3px;
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+        }
+        &::before {
+          z-index: -1;
+          top: 50%;
+          background: rgba(0, 0, 0, 0.2);
+        }
+        &::after {
+          top: 0;
+          background: rgba(255, 255, 255, 0.15);
+          @include hover_target {
+            opacity: 0;
+            transition: opacity 0.5s 0s;
+          }
+        }
+        @include hover_action {
+          &::after {
+            opacity: 1;
+          }
+        }
+      }
+    }
+    @include computerMin {
+      display: none;
+    }
+  }
+  table {
+    width: 100%;
+    @include phoneMax {
+      margin-bottom: 15vw;
+    }
+    @include tabletWithin {
+      margin-bottom: 60px;
+    }
+    @include computerMin {
+      &.product th {
+        width: 200px;
+      }
+      &.contact th {
+        width: 300px;
+      }
+      &.profile th {
+        vertical-align: top;
+        width: 300px;
+        padding-top: 35px;
+      }
+      [data-lang="eng"] & th,
+      [data-lang="fre"] & th {
+        width: 310px;
+      }
+      opacity: 0;
+      animation: fade-m50px 0.5s 0.15s forwards;
+    }
+    tr {
+      &:not(:last-child) {
+        @include phoneMax {
+          margin-bottom: 12vw;
+        }
+        @include tabletWithin {
+          margin-bottom: 50px;
+        }
+      }
+      @include tabletMax {
+        display: block;
+        @for $i from 1 through 12 {
+          &:nth-child(#{$i + 1}) {
+            th {
+              animation-delay: (0.05s * $i * 2) - 0.05;
+            }
+            td {
+              animation-delay: 0.05s * $i * 2;
+            }
+          }
+        }
+      }
+      @include computerMin {
+        border-bottom: 1px solid#9f9f9f;
+        opacity: 0;
+        animation: fade-m50px 0.5s 0s forwards;
+        @for $i from 1 through 12 {
+          &:nth-child(#{$i}) {
+            animation-delay: 0.1s * $i + 0.65;
+          }
+        }
+      }
+    }
+    th,
+    td {
+      font-weight: normal;
+      @include phoneMax {
+        padding: 3vw;
+      }
+      @include tabletWithin {
+        padding: 15px;
+      }
+      @include tabletMax {
+        display: block;
+        opacity: 0;
+        animation: fade-m50px 0.5s 0s forwards;
+      }
+      @include computerMin {
+        padding: 25px 40px;
+      }
+    }
+    th {
+      @include phoneMax {
+        margin-bottom: 3vw;
+      }
+      @include tabletWithin {
+        margin-bottom: 10px;
+      }
+      @include tabletMax {
+        border: 1px solid#9f9f9f;
+      }
+    }
+  }
+  dl {
+    dt {
+      @include computerMin {
+        float: left;
+      }
+    }
+    dd:not(:last-child) {
+      @include phoneMax {
+        margin-bottom: 3vw;
+      }
+      @include tabletWithin {
+        margin-bottom: 10px;
+      }
+      @include computerMin {
+        margin-bottom: 5px;
+      }
+    }
+  }
+  video,
+  img {
+    @include tabletMax {
+      margin: 0 auto;
+    }
+    @include computerMin {
+      margin: 70px auto;
+      animation-delay: 0.3s;
+    }
+    opacity: 0;
+    animation: fade-m50px 0.25s 0s forwards cubic-bezier(0.29, 1.33, 0.75, 1.45);
+  }
+  video {
+    display: table;
+    border: none;
+    @include tabletMax {
+      width: 100%;
+      height: calc(90vw / 16 * 9);
+    }
+  }
+  img {
+    display: block;
+    width: 100%;
+    max-width: 800px;
+  }
+}
+
+.confirm {
+  &_block {
+    position: relative;
+  }
+  &_loading {
+    visibility: hidden;
+    position: absolute;
+    width: 200px;
+    height: 220px;
+    background: rgba(255, 255, 255, 0.35);
+    left: 50%;
+    margin-left: -110px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include widthMax(740px) {
+      top: 20%;
+    }
+    @include widthMin(740px) {
+      top: 50%;
+      margin-top: -110px;
+    }
+    .figure {
+      width: 180px;
+      height: 140px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .text {
+      margin-bottom: 10px;
+    }
+    .close {
+      position: absolute;
+      cursor: pointer;
+      @include phoneMax {
+        right: 0;
+        left: 0;
+        top: 100%;
+        background: rgba(255, 255, 255, 0.35);
+        border-radius: 5px;
+        height: 35px;
+        padding: 3px;
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 5px;
+      }
+      @include tabletMin {
+        right: 10px;
+        top: 10px;
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+  &_btns {
+    @include widthMin(600px) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    @include computerMin {
+      padding: 60px 0 0;
+    }
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: fade-m50px 0.5s forwards;
+    @include tabletMax {
+      animation-delay: 0.75s;
+    }
+    @include computerMin {
+      animation-delay: 1.5s;
+    }
+    button {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 50px;
+      padding: 0 50px;
+      background: #4d4d4d;
+      border: 1px solid #4d4d4d;
+      color: #fff;
+      font-weight: normal;
+      font-weight: bold;
+      font-family: $base_font_family;
+      font-size: 1.6rem;
+      letter-spacing: 3px;
+      line-height: 1;
+      cursor: pointer;
+      @include phoneMax {
+        width: 100%;
+        padding: 0 10px;
+      }
+      @include widthWithin($sp, 600px) {
+        width: calc(100% - 20vw);
+        margin: 0 auto;
+        padding: 0 30px;
+      }
+      @include widthMin(600px) {
+        padding: 0 50px;
+      }
+      @include hover_target {
+        transition: all 0.5s 0s;
+      }
+      @include hover_action {
+        background: rgba(255, 255, 255, 0.8);
+        border: 1px solid #000;
+        color: #000;
+      }
+      &:not(:last-child) {
+        @include phoneMax {
+          margin-bottom: 4vw;
+        }
+        @include widthWithin($sp, 600px) {
+          margin-bottom: 20px;
+        }
+        @include widthMin(600px) {
+          margin-right: 30px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,122 @@
+@charset "utf-8";
+@import "variables";
+#textTitleContainer {
+  vertical-align: bottom;
+  font-weight: bold;
+  font-family: $base_font_style;
+  text-anchor: middle;
+  dominant-baseline: central;
+  stroke: rgba(255, 255, 255, 0.6);
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 0;
+  paint-order: stroke;
+  @include widthMax(310px) {
+    font-size: 12vw;
+  }
+  @include widthWithin(310px, 415px) {
+    font-size: 11.5vw;
+  }
+  @include widthWithin(415px, 500px) {
+    font-size: 8vw;
+  }
+  @include widthWithin(500px, 600px) {
+    font-size: 7vw;
+  }
+  @include widthWithin(600px, 700px) {
+    font-size: 6vw;
+  }
+  @include widthWithin(700px, $tab) {
+    font-size: 5vw;
+  }
+  @include tabletMax {
+    stroke-width: 1;
+  }
+  @include computerMin {
+    font-size: 90px;
+    stroke-width: 2;
+  }
+  @include noneClass {
+    stroke-dashoffset: 2000;
+    fill: transparent;
+  }
+  @include addClass("active") {
+    animation: traceSvg 3s 1s ease-in forwards, colorStroke 30s 5s infinite alternate;
+  }
+}
+
+.figureArrow {
+  $n: &;
+  display: block;
+  width: 100%;
+  height: auto;
+  @at-root {
+    a {
+      @include hover_target {
+        #{$n} {
+          transition: transform 0.5s 0s;
+          path {
+            transition: stroke 0.5s 0s;
+          }
+        }
+      }
+      @include hover_action {
+        #{$n} {
+          transform: scale(1.15);
+          path {
+            stroke: rgba(168, 231, 255, 0.6);
+          }
+        }
+      }
+    }
+  }
+}
+
+.figureMenu,
+.figureClose {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.figureMenu {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  span {
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    height: 3px;
+    background: #fff;
+    border-radius: 3px;
+    transition: all 0.5s 0s;
+    &:nth-child(1) {
+      top: 22%;
+      transform-origin: top right;
+    }
+    &:nth-child(3) {
+      bottom: 22%;
+      transform-origin: bottom right;
+    }
+    &:nth-child(2) {
+      top: 50%;
+      margin-top: -1.5px;
+    }
+    #gnavi.opened & {
+      width: 60%;
+      &:nth-child(1) {
+        transform: rotate(-45deg) translate(-10%, 10%);
+      }
+      &:nth-child(3) {
+        transform: rotate(45deg) translate(-10%, 10%);
+      }
+      &:nth-child(2) {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.figureSuccess {
+  width: 200px;
+}

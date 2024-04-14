@@ -1,0 +1,172 @@
+@charset "UTF-8"; // ---------------------------------------------------------------------------
+// ----- WEBフォント ----- //
+$font_notoserif: "Noto Serif JP", serif;
+$font_notosans: "Noto Sans JP", sans-serif;
+// ---------------------------------------------------------------------------
+// ----- デバイスサイズ ----- //
+
+$sp: 480px;
+$sp2: 767px;
+$tab: 896px;
+$pc: 1300px;
+$pc2: 1300px;
+
+// ----------------------------------------------------------------------------
+// ----- ベースの値 ----- //
+$base_color: none;
+$sub_color: none;
+$base_bg_color: #fff;
+$base_font_color: #fff;
+$base_font_family: "Noto Sans JP", sans-serif, "Arial", "メイリオ", "Meiryo", verdana, "ヒラギノ角ゴ Pro W3",
+  "Hiragino Kaku Gothic Pro", Osaka, "ＭＳ Ｐゴシック", "MS PGothic";
+$base_font_style: "Caveat", cursive;
+$base_font_size: 62.5%;
+$body_font_size: 1.5em;
+$base_line_height: 1.6;
+$base_letter_spacing: 1.5px; //
+
+@mixin widthMax($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin widthMin($width) {
+  @media (min-width: ($width + 0.1)) {
+    @content;
+  }
+}
+
+@mixin widthWithin($width1, $width2) {
+  @media (min-width: ($width1 + 0.1)) and (max-width: $width2) {
+    @content;
+  }
+}
+
+@mixin phoneMax {
+  @media (max-width: $sp) {
+    @content;
+  }
+}
+
+@mixin tabletMax {
+  @media (max-width: $tab) {
+    @content;
+  }
+}
+
+@mixin computerMax {
+  @media (max-width: $pc) {
+    @content;
+  }
+}
+
+@mixin tabletMin {
+  @media (min-width: ($sp + 0.1)) {
+    @content;
+  }
+}
+
+@mixin computerMin {
+  @media (min-width: ($tab + 0.1)) {
+    @content;
+  }
+}
+
+@mixin desktopMin {
+  @media (min-width: ($pc + 0.1)) {
+    @content;
+  }
+}
+
+@mixin tabletWithin {
+  @media (min-width: ($sp + 0.1)) and (max-width: $tab) {
+    @content;
+  }
+}
+
+@mixin computerWithin {
+  @media (min-width: ($tab + 0.1)) and (max-width: $pc) {
+    @content;
+  }
+}
+
+@mixin hover_target() {
+  @media (any-hover: hover) {
+    @content;
+  }
+}
+
+@mixin hover_action() {
+  @media (any-hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin device() {
+  @media (any-hover: none) {
+    @content;
+  }
+}
+
+@mixin no_device() {
+  @media (any-hover: hover) {
+    @content;
+  }
+}
+
+@mixin noneClass() {
+  @content;
+}
+
+@mixin addClass($class) {
+  &.#{$class} {
+    @content;
+  }
+}
+
+@mixin animate() {
+  &.transit-item {
+    @content;
+  }
+}
+
+@mixin effect() {
+  &.effected {
+    @content;
+  }
+}
+
+@mixin animate_pc($width: $sp) {
+  @media (min-width: ($width + 0.1)) {
+    &.transit-item {
+      @content;
+    }
+  }
+}
+
+@mixin effect_pc($width: $sp) {
+  @media (min-width: ($width + 0.1)) {
+    &.effected {
+      @content;
+    }
+  }
+}
+
+@mixin animate_sp($width: $sp) {
+  &.transit-item {
+    @media (max-width: $width) {
+      @content;
+    }
+  }
+}
+
+@mixin effect_sp($width: $sp) {
+  &.effected {
+    @media (max-width: $width) {
+      @content;
+    }
+  }
+}

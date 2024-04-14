@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<title>My Portfolio</title>
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/keyframes.css">
+<link rel="stylesheet" href="css/animate.style.css">
+<link rel="stylesheet" href="css/ui.style.css">
+<link rel="stylesheet" href="css/item.style.css">
+<link rel="stylesheet" href="css/svg.style.css">
+<link rel="stylesheet" href="css/overlay.style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&text=Now Loading" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP" rel="stylesheet">
+</head>
+<body data-state="loading">
+<div id="ui">
+  <div class="wrapper">
+    <header class="header current-point" id="top">
+      <h1 class="header_title" v-html="code.svg"></h1>
+      <template v-if="flag.jsons">
+      <ul class="gnavi_btns current-info">
+        <li><a class="active" href="#top" @click.prevent="ui_scroll('#top');">Top</a></li>
+        <li v-for="gnavi_btn in data.contents"><a :href="'#' + gnavi_btn.label" @click.prevent="ui_scroll('#' + gnavi_btn.label);">{{ gnavi_btn.title }}</a></li>
+      </ul>
+      <div class="arrow"><a :href="'#' + data.contents[0].label" @click.prevent="ui_scroll('#' + data.contents[0].label);" v-html="figure['arrow1']()"></a></div>
+      </template>
+    </header>
+    <!-- ###################################################################### -->
+    <main id="contents" v-if="flag.jsons">
+      <section class="contents_section current-point" v-for="(category, category_index) in data.contents" :id="category.label">
+        <div class="contents_section_heading transit-item toggle">
+          <h2 class="contents_section_title"><span>{{ category.title }}</span></h2>
+          <p class="contents_section_text" v-if="category.comment">{{ category.comment }}</p>
+        </div>
+        <div class="contents_section_inner">
+          <!-- ######### ↓ ABOUT  ######### -->   
+          <template v-if="category.label == 'about'" v-for="(cont, cont_index) in data.profile">
+          <template v-if="cont.label == 'basic'">
+          <div class="about_msg transit-item" v-if="cont.comment"  v-html="cont.comment"></div>
+          <dl class="about_list site transit-item" v-if="cont.language">
+            <dt v-html="data.language[lang.kind]['useLang']"></dt>
+            <dd>{{ cont.language }}</dd>
+          </dl>
+          </template>
+          <dl class="about_list outside transit-item" v-if="cont.label == 'outside' && cont.items.length">
+            <template v-for="item in cont.items">
+            <dt v-html="data.language[lang.kind][item.label]"></dt>
+            <dd><a target="_blank" :href="item.url">{{ item.url }}</a></dd>
+            </template>
+          </dl>
+          </template> 
+          <!-- ######### ↓ WEB SITE  ######### -->    
+          <template v-if="category.label == 'web_site'">
+          <ul class="site_list" :data-insert="category.label">
+            <li class="site_list_item transit-item" v-for="(item, item_index) in category.items" v-if="item_index < items_more.countFinish[category.label]">
+              <div class="site_list_inner">
+                <div class="site_list_image"><a target="_blank" :href="item.url"><div class="figure-area"><span class="loader"></span></div><img :src="item.image" :alt="item.title"></a></div>
+                <ul class="site_list_btns">
+                  <li><a class="detail" @click="contents_appear.detail(category_index, item_index)"><span class="link_arrow"></span></a></li>
+                  <li><a class="site" target="_blank" :href="item.url"><span class="link_arrow"></span></a></li>
+                </ul>
+              </div>
+              <div class="effect-area"></div>
+            </li>
+          </ul>
+          </template> 
+          <!-- ######### ↓ CMS  ######### -->    
+          <template v-if="category.label == 'cms'">
+          <ul class="cms_list" :data-insert="category.label">
+            <li class="cms_list_item transit-item" v-for="(item, item_index) in category.items" v-if="item_index < items_more.countFinish[category.label]">
+              <p class="cms_list_title">{{ item.title }}</p>
+              <ul class="cms_list_btns">
+                <li><a class="detail" @click="contents_appear.detail(category_index, item_index)"><span class="link_arrow"></span></a></li>
+                <li><a class="site" target="_blank" :href="item.url"><span class="link_arrow"></span></a></li>
+              </ul>
+            </li>
+          </ul>
+          </template> 
+          <!-- ######### ↓ GITHUB  ######### -->  
+          <template v-if="category.label == 'github'">
+          <ul class="gitHub_list" :data-insert="category.label">
+            <li class="gitHub_list_item transit-item" v-for="(item, item_index) in category.items" v-if="item_index < items_more.countFinish[category.label]"> <a class="site" target="_blank" :href="item.url">{{ item.title }}</a> </li>
+          </ul>
+          </template> 
+          <!-- ######### ↓ OTHER  ######### -->  
+          <template v-if="category.label == 'other'">
+          <ul class="other_list" :data-insert="category.label">
+            <li class="other_list_item transit-item" v-for="(item, item_index) in category.items" v-if="item_index < items_more.countFinish[category.label]">
+              <div class="other_list_image"><a :class="item.type" @click="contents_appear.object(category_index, item_index)"><div class="figure-area"><span class="loader"></span></div><img :src="item.image" :alt="item.title"></a></div>
+              <ul class="other_list_btns">
+                <li><a class="detail" @click="contents_appear.detail(category_index, item_index)"><span class="link_arrow"></span></a></li>
+                <li><a class="preview" @click="contents_appear.object(category_index, item_index)"><span class="link_arrow"></span></a></li>
+              </ul>
+            </li>
+          </ul>
+          </template> 
+          <!-- ######### ↓ CONTACT  ######### -->  
+          <template v-if="category.label == 'contact'">
+          <form class="contact_form transit-item" id="form" @submit.prevent="form_action.confirm()" v-html="code.contact">
+          </form>
+          </template>  
+          <div class="contents_section_loading" v-if="category.label != 'contact'"> <a class="more_btn" v-if="category.label != 'about' && category.items.length > items_more.countFinish[category.label]" @click="items_more.then(category.label, category_index);">and more</a> <a class="more_btn" v-if="category.label == 'about'" @click="contents_appear.profile();">and more</a> </div>
+        </div>
+      </section>
+    </main>
+    <!-- ###################################################################### -->
+    <footer class="footer">
+      <div class="arrow" v-if="flag.jsons"><a href="#top" @click.prevent="ui_scroll('#top');" v-html="figure['arrow2']()"></a></div>
+      <p class="footer_copyright"><small>Copyright &copy; Kenji Sebe<span>All Rights Reserved.</span></small></p>
+    </footer>
+    <!-- ###################################################################### -->
+    <template v-if="flag.jsons">
+    <!-- ######### ↓ ドット  ######### -->
+    <ul id="pagenation" class="current-info">
+      <li><a class="active" href="#top" @click.prevent="ui_scroll('#top');"></a></li>
+      <li v-for="pagenation_btn in data.contents"><a :href="'#' + pagenation_btn.label" @click.prevent="ui_scroll('#' + pagenation_btn.label);"></a></li>
+    </ul>
+    <!-- ######### ↓ ナビゲーション  ######### -->
+    <nav id="gnavi" class="gnavi">
+      <div class="gnavi_title"><a href="#top" @click.prevent="ui_scroll('#top');">My Portfolio</a></div>
+      <div class="gnavi_icon"><a v-html="figure['icon1']()" @click="gnavi_toggle()"></a></div>
+      <ul class="gnavi_btns current-info">
+        <li><a class="active" href="#top" @click.prevent="ui_scroll('#top', 'gnavi');">Top</a></li>
+        <li v-for="gnavi_btn in data.contents"><a :href="'#' + gnavi_btn.label" @click.prevent="ui_scroll('#' + gnavi_btn.label, 'gnavi');">{{ gnavi_btn.title }}</a></li>
+      </ul>
+    </nav>
+    </template>
+  </div>
+  <!-- ######### ↓ アラート  ######### -->
+  <div class="notice" :class="once.addClass">
+    <p v-if="flag.jsons" v-html="data.language[lang.kind]['lang']"></p>
+    <p v-if="!flag.jsons" v-html="lang.alert"></p>
+  </div>
+  <!-- ######### ↓ 言語選択  ######### -->
+  <div class="lang" v-if="config.lang2 && flag.json1" v-html="build.lang2()"></div>
+</div>
+<!-- ######### ↓ CANVAS  ######### -->
+<div id="particles" data-current="top"></div>
+<!-- ######### ↓ ローディング  ######### -->
+<div id="loadingField" class="loading_area" v-html="code.loading" v-if="flag.json1"></div>
+<!-- ######### ↓ オーバーレイ  ######### -->
+<div id="detailField" class="overlay_detail" v-if="flag.overlay && flag.jsons">
+  <div class="overlay_detail_outer">
+    <div class="overlay_detail_contents">
+      <div class="overlay_detail_icon"><a v-html="figure['icon2']()" @click="overlay_show.close();"></a></div>
+      <div class="overlay_detail_inner" v-html="code.overlay"> </div>
+      <div class="overlay_detail_btn" v-if="flag.overlayBtn"><a @click="overlay_show.close();">close</a></div>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> 
+<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script> 
+<script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js'></script>
+<script src="js/functions.js"></script> 
+<script src="js/config.js"></script> 
+<script src="js/axios.config.js"></script> 
+<script src="js/source_figure.js"></script> 
+<script src="js/source_build.js"></script> 
+<script src="js/particles.js"></script> 
+<script src="js/particles.config.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/object-fit-images/3.2.4/ofi.js"></script> 
+<script>
+objectFitImages();
+</script>
+</body>
+</html>

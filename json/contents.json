@@ -1,0 +1,361 @@
+[
+    {
+        "title": "About",
+        "label": "about"
+    },
+    {
+        "title": "Web Site",
+        "label": "web_site",
+        "loadCount": 8,
+        "clickCount": 4,
+        "comment": "",
+        "items": [
+            {
+                "image": "img/site/site14-thumb.jpg",
+                "title": "亀山ビード株式会社",
+                "url": "https://www.kameyama-bead.co.jp/",
+                "attached": "株式会社東名",
+                "date": "20年12月",
+                "period": "",
+                "phase": "コーディング",
+                "feature": "新規、レスポンシブ",
+                "comment": ""
+            },
+            {
+                "image": "img/site/site06-thumb.jpg",
+                "title": "ふれあい工房",
+                "url": "https://www.fureai-koubou.com/",
+                "attached": "株式会社東名",
+                "date": "20年08月",
+                "period": "",
+                "phase": "コーディング",
+                "feature": "新規、レスポンシブ",
+                "comment": ""
+            },
+            {
+                "image": "img/site/site19-thumb.jpg",
+                "title": "株式会社ASO設計",
+                "url": "https://www.aso-co.com/",
+                "attached": "株式会社東名",
+                "date": "21年02月",
+                "period": "",
+                "phase": "コーディング",
+                "feature": "リニューアル、レスポンシブ、CMS構築",
+                "comment": ""
+            },
+            {
+                "image": "img/site/site21-thumb.jpg",
+                "title": "明菱サービス株式会社",
+                "url": "https://www.meiryo-s.com/",
+                "attached": "株式会社東名",
+                "date": "21年04月",
+                "period": "",
+                "phase": "コーディング",
+                "feature": "リニューアル、レスポンシブ、CMS構築",
+                "comment": ""
+            },
+            {
+                "image": "img/site/site20-thumb.jpg",
+                "title": "東海住建",
+                "url": "https://www.toukai-juuken.com/",
+                "attached": "株式会社東名",
+                "date": "21年04月",
+                "period": "",
+                "phase": "コーディング",
+                "feature": "新規、レスポンシブ",
+                "comment": ""
+            },
+            {
+                "image": "img/site/site18-thumb.jpg",
+                "title": "株式会社アークプラス",
+                "url": "https://www.arc-plus.co.jp/",
+                "attached": "株式会社東名",
+                "date": "21年01月",
+                "period": "",
+                "phase": "コーディング",
+                "feature": "新規、レスポンシブ、CMS構築",
+                "comment": ""
+            },
+            {
+                "image": "img/site/site17-thumb.jpg",
+                "title": "ともえのキムチ",
+                "url": "https://www.tomoe-kimuchi.com/",
+                "attached": "株式会社東名",
+                "date": "21年01月",
+                "period": "",
+                "phase": "コーディング",
+                "feature": "新規、レスポンシブ、CMS構築",
+                "comment": ""
+            },
+            {
+                "image": "img/site/site16-thumb.jpg",
+                "title": "有限会社ナカノ精密モデル",
+                "url": "https://www.nakano-model.co.jp/",
+                "attached": "株式会社東名",
+                "date": "21年01月",
+                "period": "",
+                "phase": "コーディング",
+                "feature": "新規、レスポンシブ",
+                "comment": ""
+            },
+            {
+                "image": "img/site/site12-thumb.jpg",
+                "title": "NPO法人日本動物介護センター",
+                "url": "https://www.nihondoubutukaigo.com/",
+                "attached": "株式会社東名",
+                "date": "20年10月",
+                "period": "",
+                "phase": "コーディング",
+                "feature": "リニューアル、レスポンシブ、CMS構築",
+                "comment": ""
+            },
+            {
+                "image": "img/site/site09-thumb.jpg",
+                "title": "有限会社 N.A.O",
+                "url": "https://www.nao70.biz/",
+                "attached": "株式会社東名",
+                "date": "20年09月",
+                "period": "",
+                "phase": "コーディング",
+                "feature": "新規、レスポンシブ",
+                "comment": ""
+            },
+            {
+                "image": "img/site/site08-thumb.jpg",
+                "title": "足心館",
+                "url": "https://www.sokusinkan.com/",
+                "attached": "株式会社東名",
+                "date": "20年09月",
+                "period": "",
+                "phase": "コーディング",
+                "feature": "新規、レスポンシブ",
+                "comment": ""
+            },
+            {
+                "image": "img/site/site07-thumb.jpg",
+                "title": "丸よ小泉商店",
+                "url": "https://www.maruyo-koizumi-shoten.com/",
+                "attached": "株式会社東名",
+                "date": "20年09月",
+                "period": "",
+                "phase": "コーディング",
+                "feature": "新規、レスポンシブ",
+                "comment": ""
+            },
+            {
+                "image": "img/site/site05-thumb.jpg",
+                "title": "REIWA行商",
+                "url": "https://www.reiwa-g.com/",
+                "attached": "株式会社東名",
+                "date": "20年08月",
+                "period": "",
+                "phase": "コーディング",
+                "feature": "新規、レスポンシブ",
+                "comment": ""
+            },
+            {
+                "image": "img/site/site04-thumb.jpg",
+                "title": "デイサービスあゆむ",
+                "url": "https://www.ayumu-cherish.com/",
+                "attached": "株式会社東名",
+                "date": "20年08月",
+                "period": "",
+                "phase": "コーディング",
+                "feature": "新規、レスポンシブ",
+                "comment": ""
+            },
+            {
+                "image": "img/site/site03-thumb.jpg",
+                "title": "養老旅行センター",
+                "url": "https://www.yoro-ryoko.com/",
+                "attached": "株式会社東名",
+                "date": "20年07月",
+                "period": "",
+                "phase": "コーディング",
+                "feature": "新規、レスポンシブ",
+                "comment": ""
+            }            
+        ]
+    },
+    {
+        "title": "CMS",
+        "label": "cms",
+        "loadCount": 6,
+        "clickCount": 6,
+        "comment": "",
+        "items": [
+            {
+                "title": "株式会社ネクストアーツ安城",
+                "url": "https://www.nextarts-anjo.jp/",
+                "attached": "株式会社東名",
+                "environment": "Movable Type",
+                "date": "20年09月",
+                "period": "",
+                "system": "お知らせ、お仕事情報、企業様の声、求職様の声",
+                "feature": "",
+                "comment": "人材派遣のサイトで「製造・物流」「西三河エリア」などといったカテゴリ別求人一覧だけでなく検索機能やカテゴリ別件数、新着のスライドショーなどを設置し、他のブログ含め１番工数のかかった案件です。",
+                "code": ""
+            },
+            {
+                "title": "社会福祉法人わらしべ会",
+                "url": "https://www.warashibe-hokkaido.net/",
+                "attached": "株式会社東名",
+                "environment": "Movable Type",
+                "date": "20年10月",
+                "period": "",
+                "system": "お知らせ、わらしべブログ、情報公開",
+                "feature": "",
+                "comment": "",
+                "code": ""
+            },
+            {
+                "title": "明菱サービス株式会社",
+                "url": "https://www.meiryo-s.com/",
+                "attached": "株式会社東名",
+                "environment": "Movable Type",
+                "date": "21年04月",
+                "period": "",
+                "system": "社員インタビュー",
+                "feature": "",
+                "comment": "",
+                "code": ""
+            },
+            {
+                "title": "株式会社ASO設計",
+                "url": "https://www.aso-co.com/",
+                "attached": "株式会社東名",
+                "environment": "Movable Type",
+                "date": "21年02月",
+                "period": "",
+                "system": "施工事例、新着情報",
+                "feature": "",
+                "comment": "",
+                "code": ""
+            },
+            {
+                "title": "NPO法人日本動物介護センター",
+                "url": "https://www.nihondoubutukaigo.com/",
+                "attached": "株式会社東名",
+                "environment": "Movable Type",
+                "date": "20年11月",
+                "period": "",
+                "system": "お知らせ、活動報告",
+                "feature": "",
+                "comment": "",
+                "code": ""
+            },
+            {
+                "title": "株式会社Ｎ.Ｒ",
+                "url": "https://www.nr-energy-co.jp/",
+                "attached": "株式会社東名",
+                "environment": "Movable Type",
+                "date": "20年10月",
+                "period": "",
+                "system": "施工事例",
+                "feature": "",
+                "comment": "",
+                "code": ""
+            },
+            {
+                "title": "北名古屋サッシ販売",
+                "url": "https://www.mado-torikaeru.jp/",
+                "attached": "株式会社東名",
+                "environment": "Movable Type",
+                "date": "20年08月",
+                "period": "",
+                "system": "お知らせ、施工事例、店長ブログ",
+                "feature": "",
+                "comment": "",
+                "code": ""
+            },
+            {
+                "title": "株式会社アールイー・ホーム",
+                "url": "https://www.r-e-home.com/",
+                "attached": "株式会社東名",
+                "environment": "Movable Type",
+                "date": "20年11月",
+                "period": "",
+                "system": "お知らせ、施工実績",
+                "feature": "",
+                "comment": "",
+                "code": ""
+            },
+            {
+                "title": "株式会社アークプラス",
+                "url": "https://www.arc-plus.co.jp/",
+                "attached": "株式会社東名",
+                "environment": "Movable Type",
+                "date": "21年08月",
+                "period": "",
+                "system": "新着情報",
+                "feature": "",
+                "comment": "",
+                "code": ""
+            } 
+        ]
+    },
+    {
+        "title": "GitHub",
+        "label": "github",
+        "loadCount": 4,
+        "clickCount": 4,
+        "comment": "",
+        "items": [
+            {
+                "title": "【Ruby】画像名を連番化するシステム",
+                "url": "https://github.com/kenji88s/ruby_project01"
+            },
+            {
+                "title": "【PHP】CSVから案件を取り出し、分類して書き出し",
+                "url": "https://github.com/kenji88s/php_project01"
+            },
+            {
+                "title": "【jQuery】動画をオーバーレイで表示するプラグイン",
+                "url": "https://github.com/kenji88s/jquery_plugin01"
+            },
+            {
+                "title": "【WP】既存サイトのWP化の手順／テンプレ",
+                "url": "https://github.com/kenji88s/wp_templete01"
+            }
+        ]
+
+    },
+    {
+        "title": "Other",
+        "label": "other",
+        "loadCount": 2,
+        "clickCount": 2,
+        "comment": "",
+        "items": [
+            {
+                "image": "img/other/other01.jpg",
+                "type": "video",
+                "title": "ADVANCED WORLD",
+                "url": "https://drive.google.com/uc?id=14WknWp1GhYJ5NV98tU2KLJNOksdsGpez",
+                "attached": "愛知産業大学",
+                "class": "卒業研究制作",
+                "theme": "3DCGと実写の合成映像の制作方法の研究",
+                "period": "2010年度前期・後期",
+                "media": "動画（2分40秒）、プレゼンテーションボード",
+                "software": "Photoshop,After Effects,Illustrator,Soundbooth,Maya,VooCAT,Voodoo",
+                "comment": "マッチムーブという技法を研究して、応用の仕方を追求し。「未来都市」「近未来」を表現しました。"
+            },
+            {
+                "image": "img/other/other02.jpg",
+                "type": "image",
+                "title": "COCA-COLA BOTTLE MODELING",
+                "attached": "愛知産業大学",
+                "class": "CG演習C",
+                "theme": "ボトルモデリング",
+                "period": "2008年度前期",
+                "media": "静止画",
+                "software": "Maya",
+                "comment": "リアルな質感に近づけることが目的のこの課題では、当時専門知識がわからなかったので、納得いくまで試行錯誤しました。"
+            }
+        ]
+    },
+        {
+        "title": "Contact",
+        "label": "contact"
+    }
+]

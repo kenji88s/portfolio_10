@@ -1,0 +1,1018 @@
+@charset "utf-8";
+@import "variables";
+body {
+  &[data-state="no-bar"],
+  &[data-state="detail"],
+  &[data-state="gnavi"] {
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  &[data-state="loading"],
+  &[data-state="detail"],
+  &[data-state="gnavi"] {
+    overflow-y: hidden;
+    height: 100vh;
+  }
+  &[data-state="loading"] {
+    .wrapper {
+      display: none;
+    }
+  }
+}
+
+.wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 450px;
+  height: 100vh;
+  @include phoneMax {
+    padding: 10vw 7.5vw;
+  }
+  @include tabletMax {
+    overflow: hidden;
+  }
+  @include tabletWithin {
+    padding: 50px 7.5vw;
+  }
+  @include computerMin {
+    padding: 50px 48px 85px;
+  }
+}
+
+.footer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  font-size: 1.4rem;
+  font-family: $font_notoserif;
+  @include phoneMax {
+    min-height: 15vw;
+    padding: 5vw;
+  }
+  @include tabletMin {
+    min-height: 70px;
+    line-height: 1;
+  }
+  span {
+    @include phoneMax {
+      display: block;
+    }
+    @include tabletMin {
+      margin-left: 5px;
+    }
+  }
+}
+
+.contents_section {
+  $n: ".contents_section";
+  @include phoneMax {
+    padding: 25vw 7.5vw;
+  }
+  @include tabletWithin {
+    padding: 120px 7.5vw;
+  }
+  @include computerMin {
+    padding: 120px 48px;
+    margin: 0 auto;
+  }
+  @include computerWithin {
+    max-width: 1200px;
+  }
+  @include desktopMin {
+    width: 1296px;
+  }
+  &:last-child {
+    @include phoneMax {
+      margin-bottom: 15vw;
+    }
+    @include tabletMin {
+      margin-bottom: 60px;
+    }
+  }
+  &_heading {
+    display: flex;
+    align-items: center;
+    @include phoneMax {
+      justify-content: center;
+    }
+    @include widthMax(415px) {
+      margin-bottom: 5vw;
+    }
+    @include widthWithin(415px, $tab) {
+      margin-bottom: 35px;
+    }
+    @include computerMin {
+      margin-bottom: 50px;
+    }
+    @include animate {
+      #{$n}_title {
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          border: 0px solid #dedede;
+        }
+        span {
+          opacity: 0;
+          transform: translateY(150%);
+        }
+      }
+      @include tabletMin {
+        #{$n}:nth-child(odd) & {
+          padding-left: 50%;
+          justify-content: flex-start;
+          #{$n}_title {
+            transform: translateX(-50%);
+          }
+        }
+        #{$n}:nth-child(even) & {
+          padding-right: 50%;
+          justify-content: flex-end;
+          #{$n}_title {
+            transform: translateX(50%);
+          }
+        }
+      }
+    }
+    @include effect {
+      @include tabletMin {
+        #{$n}:nth-child(odd) & {
+          padding-left: 0;
+          transition: padding-left 0s 4s;
+        }
+        #{$n}:nth-child(even) & {
+          padding-right: 0;
+          transition: padding-right 0s 4s;
+        }
+      }
+      #{$n}_title {
+        @include tabletMin {
+          min-width: 0;
+          transform: translateX(0) !important;
+          transition: transform 0s 4s, min-width 0s 2.5s;
+        }
+        &::before {
+          @include phoneMax {
+            animation: traceLine-right-sp 2.5s 0s forwards;
+          }
+          @include tabletMin {
+            animation: traceLine-right-pc 2.5s 0s forwards;
+          }
+        }
+        &::after {
+          @include phoneMax {
+            animation: traceLine-left-sp 2.5s 0s forwards;
+          }
+          @include tabletMin {
+            animation: traceLine-left-pc 2.5s 0s forwards;
+          }
+        }
+        span {
+          @include phoneMax {
+            animation: fade-p150per 0.35s 0.25s forwards;
+          }
+          @include tabletMin {
+            animation: fade-p150per 0.35s 0.25s forwards, fade-p150per 0.35s 3.5s reverse forwards,
+              fade-p150per 0.35s 4s forwards !important;
+          }
+        }
+      }
+    }
+  }
+  &_title {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: normal;
+    font-family: $base_font_style;
+    line-height: 1;
+    @include phoneMax {
+      width: 70vw;
+      height: 20vw;
+      font-size: 11.5vw;
+    }
+    @include tabletMin {
+      min-width: 300px;
+      padding: 0 10px;
+    }
+    @include tabletWithin {
+      height: 80px;
+      font-size: 4.5rem;
+    }
+    @include computerMin {
+      height: 100px;
+      font-size: 5rem;
+    }
+    &:not(:last-child) {
+      @include phoneMax {
+        margin-bottom: 5vw;
+      }
+      @include tabletMin {
+        margin-bottom: 40px;
+      }
+    }
+  }
+  &_text {
+    display: flex;
+    display: none;
+  }
+  &_loading {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include phoneMax {
+      margin-top: 12vw;
+    }
+    @include tabletMin {
+      min-height: 100px;
+      margin-top: 40px;
+    }
+    @include computerMin {
+      margin-bottom: 40px;
+    }
+  }
+}
+
+.gnavi {
+  $n: ".gnavi";
+  @include widthMax(1020px) {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    transition: background-color 0.3s 0s;
+    bottom: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow-y: scroll;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.95);
+    @include phoneMax {
+      padding: 7.5vw 5vw 15vw;
+    }
+    @include tabletMin {
+      padding: 25px 5vw 100px;
+    }
+    &:not(.opened) {
+      left: unset;
+      overflow-y: auto;
+      min-height: auto;
+      padding: 0;
+      bottom: unset;
+      background-color: rgba(0, 0, 0, 0);
+      @include phoneMax {
+        top: 7.5vw;
+        right: 5vw;
+      }
+      @include tabletMin {
+        top: 25px;
+        right: 5vw;
+      }
+      #{$n}_icon {
+        margin-bottom: 0;
+      }
+      #{$n}_btns {
+        display: none;
+      }
+    }
+    &_title {
+      display: none;
+    }
+    &_icon {
+      text-align: right;
+      @include phoneMax {
+        margin-bottom: 12vw;
+      }
+      @include tabletMin {
+        margin-bottom: 40px;
+      }
+      a {
+        display: inline-block;
+        vertical-align: top;
+        @include phoneMax {
+          width: 15vw;
+          height: 15vw;
+          padding: 1.5vw;
+        }
+        @include tabletMin {
+          width: 66px;
+          height: 66px;
+          padding: 8px;
+        }
+      }
+    }
+  }
+  @include widthMin(1020px) {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 70px;
+    padding: 10px 15px 10px 25px;
+    background-color: rgba(0, 0, 0, 0.8);
+    @include noneClass {
+      transition: transform 0.5s 1s;
+    }
+    @include addClass("sink") {
+      transform: translateY(-100%);
+    }
+    &_title {
+      a {
+        display: block;
+        padding: 5px;
+        text-decoration: none;
+        line-height: 1;
+        font-size: 3.5rem;
+        font-family: $base_font_style;
+      }
+    }
+    &_icon {
+      display: none;
+    }
+  }
+  &_btns {
+    @include widthMax(1020px) {
+      display: flex;
+
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      flex: 1;
+      margin-bottom: 20vw;
+      .header & {
+        display: none;
+      }
+
+      li {
+        opacity: 0;
+        transform: translateY(-50px);
+        animation: fade-m50px 0.3s forwards;
+        @for $i from 1 through 10 {
+          &:nth-child(#{$i}) {
+            animation-delay: (0.1s * $i);
+          }
+        }
+
+        &:not(:last-child) {
+          @include phoneMax {
+            margin-bottom: 10vw;
+          }
+          @include tabletMin {
+            margin-bottom: 30px;
+          }
+        }
+      }
+
+      a {
+        position: relative;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        text-decoration: none;
+        font-weight: normal;
+
+        padding: 1vw 5vw;
+
+        font-family: $base_font_style;
+        @include phoneMax {
+          font-size: 7vw;
+        }
+        @include tabletMin {
+          font-size: 3rem;
+        }
+      }
+    }
+    @include widthMin(1020px) {
+      display: flex;
+      li {
+        &:not(:last-child) {
+          border-right: 1px dashed #fff;
+        }
+      }
+      a {
+        position: relative;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        text-decoration: none;
+        font-weight: normal;
+        min-height: 30px;
+        padding: 1px 30px;
+        line-height: 1;
+        &::after {
+          content: "";
+          position: absolute;
+          left: 20px;
+          bottom: -5px;
+          border-bottom: 1px solid #fff;
+        }
+        @include noneClass {
+          &::after {
+            right: 100%;
+            transition: right 0.5s 0s;
+          }
+        }
+        @include addClass("active") {
+          &::after {
+            right: 20px;
+          }
+        }
+        @include hover_action {
+          &::after {
+            right: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.about {
+  $n: ".about";
+  &_msg {
+    @include phoneMax {
+      margin-bottom: 10vw;
+      line-height: 1.8;
+    }
+    @include tabletMin {
+      margin-bottom: 40px;
+      line-height: 2;
+    }
+    p {
+      @include phoneMax {
+        margin-bottom: 5vw;
+      }
+      @include tabletMin {
+        margin-bottom: 20px;
+      }
+    }
+    @include animate_pc {
+      &,
+      ~ #{$n}_list.site,
+      ~ #{$n}_list.outside {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+    }
+    @include effect_pc {
+      &,
+      ~ #{$n}_list.site,
+      ~ #{$n}_list.outside {
+        animation: fade-m50px 0.5s forwards;
+      }
+      & {
+        animation-delay: 0.25s;
+      }
+      ~ #{$n}_list.site {
+        animation-delay: 0.5s;
+      }
+      ~ #{$n}_list.outside {
+        animation-delay: 0.75s;
+      }
+    }
+  }
+  &_list {
+    dt {
+      @include phoneMax {
+        margin-bottom: 2vw;
+      }
+      @include tabletMin {
+        margin-bottom: 5px;
+      }
+    }
+    &.site {
+      &:not(:last-child) {
+        @include phoneMax {
+          margin-bottom: 15vw;
+        }
+        @include tabletMin {
+          margin-bottom: 60px;
+        }
+      }
+      dt {
+        text-indent: -10px;
+        &::before {
+          content: "\3010";
+        }
+        &::after {
+          content: "\3011";
+        }
+      }
+    }
+    &.outside {
+      dt {
+        position: relative;
+        padding-left: 20px;
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 7px;
+          width: 12px;
+          height: 12px;
+          background: #fff;
+        }
+      }
+      dd:not(:last-child) {
+        @include phoneMax {
+          margin-bottom: 7vw;
+        }
+        @include tabletMin {
+          margin-bottom: 30px;
+        }
+      }
+    }
+    a {
+      display: inline-block;
+      vertical-align: top;
+      text-decoration: none;
+      @include hover_target {
+        @include tabletMax {
+          text-decoration: underline transparent;
+          transition: text-decoration-color 0.5s 0s;
+        }
+        @include computerMin {
+          position: relative;
+          &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 100%;
+            top: 100%;
+            bottom: 0;
+            border-bottom: 1px solid #fff;
+            transition: right 0.5s 0s;
+          }
+        }
+      }
+      @include hover_action {
+        @include tabletMax {
+          text-decoration-color: #fff;
+        }
+        @include computerMin {
+          &::after {
+            right: 0;
+          }
+        }
+      }
+    }
+  }
+  &_msg,
+  &_list {
+    @include animate_sp {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    @include effect_sp {
+      animation: fade-m50px 0.5s 0s forwards;
+    }
+  }
+}
+
+.contact_form {
+  margin: 0 auto;
+  @include widthMax(740px) {
+    width: 100%;
+  }
+  @include widthMin(740px) {
+    width: 640px;
+  }
+  @include animate {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  @include effect {
+    animation: fade-m50px 0.5s forwards;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    tr {
+      border-bottom: 1px dashed #fff;
+      @include widthMax(740px) {
+        display: block;
+      }
+      &:not(:last-child) {
+        @include phoneMax {
+          margin-bottom: 7vw;
+        }
+        @include widthWithin($sp, 740px) {
+          margin-bottom: 35px;
+        }
+      }
+    }
+    th,
+    td {
+      @include widthMax(740px) {
+        display: block;
+      }
+      @include widthMin(740px) {
+        padding: 30px 20px;
+      }
+    }
+    th {
+      @include phoneMax {
+        margin-bottom: 4vw;
+      }
+      @include widthWithin($sp, 740px) {
+        margin-bottom: 20px;
+      }
+      @include widthMin(740px) {
+        width: 200px;
+        letter-spacing: 3px;
+      }
+    }
+    td {
+      @include phoneMax {
+        margin-bottom: 7vw;
+      }
+      @include widthWithin($sp, 740px) {
+        margin-bottom: 35px;
+      }
+    }
+    input,
+    textarea {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      background: rgba(255, 255, 255, 0.35);
+      font-size: 1.5rem;
+      font-weight: bold;
+      font-family: $base_font_family;
+      color: #fff;
+      line-height: 1.3;
+      letter-spacing: 1px;
+      @include widthMax(740px) {
+        width: 100%;
+      }
+      @include widthMin(740px) {
+        width: 400px;
+      }
+      &:focus {
+        background: rgba(255, 255, 255, 0.8);
+        color: #000;
+      }
+    }
+    textarea {
+      display: block;
+      min-height: 250px;
+    }
+  }
+  &_btns {
+    @include widthMin(600px) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    @include phoneMax {
+      padding: 15vw 0 0;
+    }
+    @include widthWithin($sp, 740px) {
+      padding: 50px 0 0;
+    }
+    @include widthMin(740px) {
+      padding: 60px 0 0;
+    }
+    button {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 50px;
+      background: none;
+      border: 1px solid #9f9f9f;
+      color: #fff;
+      font-weight: normal;
+      font-weight: bold;
+      font-family: $base_font_family;
+      font-size: 1.6rem;
+      letter-spacing: 3px;
+      line-height: 1;
+      cursor: pointer;
+      @include phoneMax {
+        width: 100%;
+        padding: 0 10px;
+      }
+      @include widthWithin($sp, 600px) {
+        width: calc(100% - 20vw);
+        margin: 0 auto;
+        padding: 0 30px;
+      }
+      @include widthMin(600px) {
+        padding: 0 50px;
+      }
+      @include hover_target {
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          z-index: -1;
+          opacity: 0;
+          background: rgba(228, 255, 0, 0.5);
+          transform: scale(0);
+          transition: opacity 0.5s 0.2s, transform 0.3s 0s;
+        }
+      }
+      @include hover_action {
+        &::after {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      &:not(:last-child) {
+        @include phoneMax {
+          margin-bottom: 4vw;
+        }
+        @include widthWithin($sp, 600px) {
+          margin-bottom: 20px;
+        }
+        @include widthMin(600px) {
+          margin-right: 30px;
+        }
+      }
+    }
+  }
+}
+
+#particles {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  z-index: -1;
+  transition: background-color 2s 0.5s;
+  &[data-current="top"] {
+    background-color: #21496b;
+  }
+  &[data-current="about"] {
+    background-color: #6b215b;
+  }
+  &[data-current="web_site"] {
+    background-color: #216b31;
+  }
+  &[data-current="cms"] {
+    background-color: #6b4321;
+  }
+  &[data-current="github"] {
+    background-color: #c56304;
+  }
+  &[data-current="other"] {
+    background-color: #21236b;
+  }
+  &[data-current="contact"] {
+    background-color: #6b5b21;
+  }
+  &::after {
+    content: "";
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+  }
+  canvas {
+    background: linear-gradient(#000 0%, transparent 100%);
+  }
+}
+
+.lang {
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  z-index: 10;
+  @include widthMax(1020px) {
+    display: none;
+  }
+  &_icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #222;
+    border-radius: 3px;
+    cursor: pointer;
+    box-shadow: 10px 10px 20px -5px #000;
+    transition: background 0.5s;
+    &:hover {
+      background: #1d3244;
+    }
+  }
+  &_list {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    width: 100px;
+    margin-bottom: 2px;
+    border-radius: 4px;
+    box-shadow: 10px 10px 20px -5px #000;
+    cursor: pointer;
+    display: none;
+    &.active {
+      display: block;
+    }
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      padding: 10px;
+      min-height: 42px;
+      font-size: 1.4rem;
+      background: #222;
+      transition: background 0.5s;
+      &:hover {
+        background: #1d3244;
+      }
+    }
+  }
+}
+
+#pagenation {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @include phoneMax {
+    right: 1.5vw;
+    min-height: 30vh;
+  }
+  @include tabletWithin {
+    right: 2vw;
+    min-height: 50vh;
+  }
+  @include computerMin {
+    right: 15px;
+    min-height: 150px;
+  }
+  li {
+    @include widthMax(600px) {
+      &:not(:last-child) {
+        margin-bottom: 5vw;
+      }
+    }
+    @include widthWithin(600px, 900px) {
+      &:not(:last-child) {
+        margin-bottom: 25px;
+      }
+    }
+    @include widthMin(900px) {
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+  a {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    @include widthMax(425px) {
+      width: 4.5vw;
+      height: 4.5vw;
+    }
+    @include widthWithin(425px, 600px) {
+      width: 3.5vw;
+      height: 3.5vw;
+    }
+    @include widthWithin(600px, 900px) {
+      width: 17px;
+      height: 17px;
+    }
+    @include widthMin(900px) {
+      width: 13px;
+      height: 13px;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 1);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      transition: all 0.3s 0s;
+    }
+    @include addClass("active") {
+      &::after {
+        background: #fff;
+        cursor: default;
+      }
+    }
+    @include hover_action {
+      &:not(.active)::after {
+        left: -5px;
+        right: -5px;
+        top: -5px;
+        bottom: -5px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 1);
+      }
+    }
+  }
+}
+
+.notice {
+  position: fixed;
+  z-index: 5;
+  text-align: center;
+  @include phoneMax {
+    left: 5vw;
+    right: 5vw;
+    bottom: 3vw;
+  }
+  @include tabletMin {
+    left: 0;
+    right: 0;
+    bottom: 15px;
+  }
+  @include noneClass {
+    p {
+      transform: translateY(150%);
+      transition: transform 1s 1s;
+    }
+  }
+  @include addClass("active") {
+    p {
+      transform: translateY(0);
+    }
+  }
+  p {
+    background: rgba(64, 64, 64, 0.9);
+    border-radius: 3px;
+    box-shadow: 10px 10px 20px -5px #000;
+    font-size: 1.35rem;
+    @include phoneMax {
+      display: block;
+      padding: 2.5vw 3vw 2.75vw;
+      line-height: 1.45;
+    }
+    @include tabletMin {
+      display: inline-block;
+      vertical-align: top;
+      padding: 14px 20px;
+      line-height: 1;
+    }
+  }
+  span {
+    @include phoneMax {
+      display: block;
+    }
+  }
+}
+
+.arrow {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  .footer & {
+    bottom: 100%;
+  }
+  .header & {
+    @include phoneMax {
+      bottom: 10vw;
+    }
+    @include tabletMin {
+      bottom: 30px;
+    }
+  }
+  a {
+    display: block;
+    @include phoneMax {
+      width: 12vw;
+      padding: 1vw;
+    }
+    @include tabletMin {
+      width: 60px;
+      padding: 5px;
+    }
+  }
+}
