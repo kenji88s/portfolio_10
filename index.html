@@ -118,10 +118,12 @@
     <!-- ###################################################################### -->
     <template v-if="flag.jsons">
     <!-- ######### ↓ ドット  ######### -->
+    <!--
     <ul id="pagenation" class="current-info">
       <li><a class="active" href="#top" @click.prevent="ui_scroll('#top');"></a></li>
       <li v-for="pagenation_btn in data.contents"><a :href="'#' + pagenation_btn.label" @click.prevent="ui_scroll('#' + pagenation_btn.label);"></a></li>
     </ul>
+      -->
     <!-- ######### ↓ ナビゲーション  ######### -->
     <nav id="gnavi" class="gnavi">
       <div class="gnavi_title"><a href="#top" @click.prevent="ui_scroll('#top');">My Portfolio</a></div>
