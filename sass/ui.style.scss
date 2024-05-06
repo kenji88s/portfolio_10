@@ -13,7 +13,7 @@ body {
   &[data-state="gnavi"] {
     overflow-y: hidden;
     height: 100vh;
-    @include tabletMax {
+    @include widthMax(1020px) {
       overflow-y: unset;
     }
   }
@@ -265,7 +265,7 @@ body {
     justify-content: flex-start;
     overflow-y: scroll;
     min-height: 100vh;
-    background-color: rgba(0, 0, 0, 0.95);
+    background-color: rgba(0, 0, 0, 0.5);
     @include phoneMax {
       padding: 7.5vw 5vw 15vw;
     }
