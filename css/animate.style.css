@@ -1,95 +1,66 @@
 .building_square {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
-
 @media (max-width: 480px) {
   .building_square {
     width: 16vw;
     height: 16vw;
   }
 }
-
 @media (min-width: 480.1px) {
   .building_square {
     width: 70px;
     height: 70px;
   }
 }
-
 .building_square .square {
   position: relative;
   opacity: 0;
   border: 1px solid rgba(255, 255, 255, 0.5);
-  -webkit-animation: buildingSquare 3s 0s infinite;
-          animation: buildingSquare 3s 0s infinite;
+  animation: buildingSquare 3s 0s infinite;
 }
-
 @media (max-width: 480px) {
   .building_square .square {
-    top: calc(-1.5px * 2 / 3);
+    top: -1px;
     width: 4.5vw;
     height: 4.5vw;
   }
 }
-
 @media (min-width: 480.1px) {
   .building_square .square {
-    top: calc(-10px * 2 / 3);
+    top: -6.6666666667px;
     width: 20px;
     height: 20px;
   }
 }
-
 .building_square .square:nth-child(1) {
-  -webkit-animation-delay: calc(150ms * 6);
-          animation-delay: calc(150ms * 6);
+  animation-delay: 900ms;
 }
-
 .building_square .square:nth-child(2) {
-  -webkit-animation-delay: calc(150ms * 7);
-          animation-delay: calc(150ms * 7);
+  animation-delay: 1050ms;
 }
-
 .building_square .square:nth-child(3) {
-  -webkit-animation-delay: calc(150ms * 8);
-          animation-delay: calc(150ms * 8);
+  animation-delay: 1200ms;
 }
-
 .building_square .square:nth-child(4) {
-  -webkit-animation-delay: calc(150ms * 3);
-          animation-delay: calc(150ms * 3);
+  animation-delay: 450ms;
 }
-
 .building_square .square:nth-child(5) {
-  -webkit-animation-delay: calc(150ms * 4);
-          animation-delay: calc(150ms * 4);
+  animation-delay: 600ms;
 }
-
 .building_square .square:nth-child(6) {
-  -webkit-animation-delay: calc(150ms * 5);
-          animation-delay: calc(150ms * 5);
+  animation-delay: 750ms;
 }
-
 .building_square .square:nth-child(7) {
-  -webkit-animation-delay: calc(150ms * 0);
-          animation-delay: calc(150ms * 0);
+  animation-delay: 0ms;
 }
-
 .building_square .square:nth-child(8) {
-  -webkit-animation-delay: calc(150ms * 1);
-          animation-delay: calc(150ms * 1);
+  animation-delay: 150ms;
 }
-
 .building_square .square:nth-child(9) {
-  -webkit-animation-delay: calc(150ms * 2);
-          animation-delay: calc(150ms * 2);
+  animation-delay: 300ms;
 }
 
 .half_circles {
@@ -97,7 +68,6 @@
   left: 50%;
   top: 50%;
 }
-
 @media (max-width: 480px) {
   .half_circles {
     width: 8vw;
@@ -105,7 +75,6 @@
     margin: -4vw 0 0 -4vw;
   }
 }
-
 @media (min-width: 480.1px) {
   .half_circles {
     width: 30px;
@@ -113,7 +82,6 @@
     margin: -15px 0 0 -15px;
   }
 }
-
 .half_circles .circle {
   content: "";
   position: absolute;
@@ -125,29 +93,23 @@
   border: solid transparent;
   border-radius: 50%;
 }
-
 @media (max-width: 480px) {
   .half_circles .circle {
     border-width: 1vw;
   }
 }
-
 @media (min-width: 480.1px) {
   .half_circles .circle {
     border-width: 3px;
   }
 }
-
 .half_circles .circle.circle_1 {
   border-top-color: #fff;
-  -webkit-animation: rotateArc 1.5s 0s infinite;
-          animation: rotateArc 1.5s 0s infinite;
+  animation: rotateArc 1.5s 0s infinite;
 }
-
 .half_circles .circle.circle_2 {
   border-bottom-color: #fff;
-  -webkit-animation: rotateArc 1.5s 0s infinite alternate;
-          animation: rotateArc 1.5s 0s infinite alternate;
+  animation: rotateArc 1.5s 0s infinite alternate;
 }
 
 .loader {
@@ -156,7 +118,5 @@
   width: 15px;
   height: 15px;
   position: relative;
-  -webkit-animation: flashDot 1.1s infinite ease;
-          animation: flashDot 1.1s infinite ease;
-}
-/*# sourceMappingURL=animate.style.css.map */
+  animation: flashDot 1.1s infinite ease;
+}/*# sourceMappingURL=animate.style.css.map */

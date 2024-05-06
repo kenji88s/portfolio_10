@@ -11,59 +11,49 @@
   stroke-dashoffset: 2000;
   fill: transparent;
 }
-
 @media (max-width: 310px) {
   #textTitleContainer {
     font-size: 12vw;
   }
 }
-
 @media (min-width: 310.1px) and (max-width: 415px) {
   #textTitleContainer {
     font-size: 11.5vw;
   }
 }
-
 @media (min-width: 415.1px) and (max-width: 500px) {
   #textTitleContainer {
     font-size: 8vw;
   }
 }
-
 @media (min-width: 500.1px) and (max-width: 600px) {
   #textTitleContainer {
     font-size: 7vw;
   }
 }
-
 @media (min-width: 600.1px) and (max-width: 700px) {
   #textTitleContainer {
     font-size: 6vw;
   }
 }
-
 @media (min-width: 700.1px) and (max-width: 896px) {
   #textTitleContainer {
     font-size: 5vw;
   }
 }
-
 @media (max-width: 896px) {
   #textTitleContainer {
     stroke-width: 1;
   }
 }
-
 @media (min-width: 896.1px) {
   #textTitleContainer {
     font-size: 90px;
     stroke-width: 2;
   }
 }
-
 #textTitleContainer.active {
-  -webkit-animation: traceSvg 3s 1s ease-in forwards, colorStroke 30s 5s infinite alternate;
-          animation: traceSvg 3s 1s ease-in forwards, colorStroke 30s 5s infinite alternate;
+  animation: traceSvg 3s 1s ease-in forwards, colorStroke 30s 5s infinite alternate;
 }
 
 .figureArrow {
@@ -71,24 +61,17 @@
   width: 100%;
   height: auto;
 }
-
 @media (any-hover: hover) {
   a .figureArrow {
-    -webkit-transition: -webkit-transform 0.5s 0s;
-    transition: -webkit-transform 0.5s 0s;
     transition: transform 0.5s 0s;
-    transition: transform 0.5s 0s, -webkit-transform 0.5s 0s;
   }
   a .figureArrow path {
-    -webkit-transition: stroke 0.5s 0s;
     transition: stroke 0.5s 0s;
   }
 }
-
 @media (any-hover: hover) {
   a:hover .figureArrow {
-    -webkit-transform: scale(1.15);
-            transform: scale(1.15);
+    transform: scale(1.15);
   }
   a:hover .figureArrow path {
     stroke: rgba(168, 231, 255, 0.6);
@@ -107,7 +90,6 @@
   width: 100%;
   height: 100%;
 }
-
 .figureMenu span {
   position: absolute;
   left: 5px;
@@ -115,46 +97,33 @@
   height: 3px;
   background: #fff;
   border-radius: 3px;
-  -webkit-transition: all 0.5s 0s;
   transition: all 0.5s 0s;
 }
-
 .figureMenu span:nth-child(1) {
   top: 22%;
-  -webkit-transform-origin: top right;
-          transform-origin: top right;
+  transform-origin: top right;
 }
-
 .figureMenu span:nth-child(3) {
   bottom: 22%;
-  -webkit-transform-origin: bottom right;
-          transform-origin: bottom right;
+  transform-origin: bottom right;
 }
-
 .figureMenu span:nth-child(2) {
   top: 50%;
   margin-top: -1.5px;
 }
-
 #gnavi.opened .figureMenu span {
   width: 60%;
 }
-
 #gnavi.opened .figureMenu span:nth-child(1) {
-  -webkit-transform: rotate(-45deg) translate(-10%, 10%);
-          transform: rotate(-45deg) translate(-10%, 10%);
+  transform: rotate(-45deg) translate(-10%, 10%);
 }
-
 #gnavi.opened .figureMenu span:nth-child(3) {
-  -webkit-transform: rotate(45deg) translate(-10%, 10%);
-          transform: rotate(45deg) translate(-10%, 10%);
+  transform: rotate(45deg) translate(-10%, 10%);
 }
-
 #gnavi.opened .figureMenu span:nth-child(2) {
   opacity: 0;
 }
 
 .figureSuccess {
   width: 200px;
-}
-/*# sourceMappingURL=svg.style.css.map */
+}/*# sourceMappingURL=svg.style.css.map */
