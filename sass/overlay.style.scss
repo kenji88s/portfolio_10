@@ -331,6 +331,16 @@
       height: calc(90vw / 16 * 9);
     }
   }
+  iframe {
+    display: table;
+    margin: 0 auto;
+    width: 640px;
+    height: 360px;
+    @include tabletMax {
+      width: 100%;
+      height: calc(90vw / 16 * 9);
+    }
+  }
   img {
     display: block;
     width: 100%;

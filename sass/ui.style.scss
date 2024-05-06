@@ -13,6 +13,9 @@ body {
   &[data-state="gnavi"] {
     overflow-y: hidden;
     height: 100vh;
+    @include tabletMax {
+      overflow-y: unset;
+    }
   }
   &[data-state="loading"] {
     .wrapper {
