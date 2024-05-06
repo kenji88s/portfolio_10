@@ -216,7 +216,7 @@ var contents_appear = new Vue({
             var object = data.contents[categoryIndex].items[itemIndex];
             switch (object.type) {
                 case 'video':
-                    code.overlay = preview.video(object.image, object.url);
+                    code.overlay = preview.video(object.image, object.youtube);
                     break;
                 case 'image':
                     code.overlay = preview.image(object.image, object.title);

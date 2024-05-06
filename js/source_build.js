@@ -83,7 +83,7 @@ const preview = {
         let source_code = `<table class="product">`;
         var target = data.contents[number].items[index];
         for (var string in target) {
-            if (target[string] && string != "image" && string != "type") {
+            if (target[string] && string != "image" && string != "type" && string != "youtube") {
                 source_code += `<tr><th>${data.language[lang.kind][string]}</th><td>`;
                 source_code += (string == "url" ? `<a href="${target[string]}" target="_blank">${target[string]}</a>` : target[string]);
                 source_code += `</td></tr>`;
@@ -94,12 +94,22 @@ const preview = {
         return source_code;
     },
     // 動画
+    /*
     video: (image, url) => {
         let source_code = `<video class="overlay_detail_video" controls muted autoplay playsinline width="640" height="360" `;
         source_code += `poster="${image}" preload="none">`;
         source_code += `<source src="${url}">`;
         source_code += `<p>${data.language[lang.kind]['alertVideo']}</p>`;
         source_code += `</video>`;
+        return source_code;
+    },
+    */
+    video: (image, youtube) => {
+        let source_code = `<iframe width="560" height="315" src="${youtube}?rel=0&modestbranding=1&mute=1" title="YouTube video player" `;
+        source_code += `frameborder="0" allow="accelerometer; autoplay; `;
+        source_code += `clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" `;
+        source_code += `referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>`;
+        source_code += `</iframe>`;
         return source_code;
     },
     // 画像
