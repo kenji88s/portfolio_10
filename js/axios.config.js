@@ -182,7 +182,7 @@ var overlay_show = new Vue({
         // 非表示
         close: function () {
             $('body').removeAttr('data-state');
-            $(window).scrollTop(once.scrollTop);
+            jump_prev();
             /* ↑ スクロールバーの出現 → オーバーレイ前のスクロール位置に戻す */
 
             flag.overlay = false;

@@ -85,7 +85,7 @@ function gnavi_toggle(mode = null) {
 	if ($('#gnavi').attr('class').indexOf('opened') > 0 || mode == 'resize') {
 		$('#gnavi').removeClass('opened');
 		$('body').removeAttr('data-state');
-		$(window).scrollTop(once.scrollTop);
+		jump_prev();
 		/* ↑ ナビゲーションの非表示、奥レイヤーのスクロール有効、前のスクロール位置に戻す */
 	} else {
 		$('#gnavi').addClass('opened');
@@ -93,6 +93,20 @@ function gnavi_toggle(mode = null) {
 		$('body').attr('data-state', 'gnavi');
 		/* ↑ ナビゲーションの表示、スクロール位置の保存、奥レイヤーのスクロール無効 */
 	};
+};
+
+
+
+function jump_prev() {
+	var state = $('body').attr('data-state');
+	if(state == 'gnavi' || state == 'detail') $(window).scrollTop(once.scrollTop);
+	/*
+	var ua = navigator.userAgent;
+	var judge = ua.indexOf('iPhone') > -1 || (ua.indexOf('Android') > -1 && ua.indexOf('Mobile') > -1);
+	if (!judge) {
+		$(window).scrollTop(once.scrollTop);
+	};
+	*/
 };
 
 // ナビゲーションの出現・引込
@@ -124,7 +138,7 @@ function height_match() {
 };
 
 // 画像の上のローディング停止
-function loading_hidden(){
+function loading_hidden() {
 	setTimeout(function () {
 		$('.figure-area').remove();
 		clearTimeout();
