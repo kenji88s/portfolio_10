@@ -100,7 +100,7 @@ function jump_prev () {
 	var ua = navigator.userAgent;
 	if (!(ua.indexOf('iPhone') > -1) || !(ua.indexOf('Android') > -1 && ua.indexOf('Mobile') > -1)) {
 		$(window).scrollTop(once.scrollTop);
-		alert();
+		alert(ua);
 	};
 };
 
