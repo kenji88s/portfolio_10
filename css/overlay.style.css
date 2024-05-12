@@ -99,6 +99,7 @@
 @media (max-width: 896px) {
   .overlay_detail {
     background: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.1);
   }
 }
 @media (min-width: 896.1px) {
@@ -115,6 +116,7 @@
     bottom: 0;
     z-index: -1;
     background: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.1);
     animation: scaleBg 0.15s 0s forwards cubic-bezier(0.21, 0.03, 0.42, 0.13);
   }
 }
