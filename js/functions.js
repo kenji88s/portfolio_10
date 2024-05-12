@@ -90,6 +90,7 @@ function gnavi_toggle(mode = null) {
 	} else {
 		$('#gnavi').addClass('opened');
 		once.scrollTop = $(window).scrollTop();
+		alert(once.scrollTop);
 		$('body').attr('data-state', 'gnavi');
 		/* ↑ ナビゲーションの表示、スクロール位置の保存、奥レイヤーのスクロール無効 */
 	};
