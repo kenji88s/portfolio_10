@@ -85,12 +85,11 @@ function gnavi_toggle(mode = null) {
 	if ($('#gnavi').attr('class').indexOf('opened') > 0 || mode == 'resize') {
 		$('#gnavi').removeClass('opened');
 		$('body').removeAttr('data-state');
-		$(window).scrollTop(once.scrollTop);
+		// $(window).scrollTop(once.scrollTop);
 		/* ↑ ナビゲーションの非表示、奥レイヤーのスクロール有効、前のスクロール位置に戻す */
 	} else {
 		$('#gnavi').addClass('opened');
 		once.scrollTop = $(window).scrollTop();
-		alert(once.scrollTop);
 		$('body').attr('data-state', 'gnavi');
 		/* ↑ ナビゲーションの表示、スクロール位置の保存、奥レイヤーのスクロール無効 */
 	};
