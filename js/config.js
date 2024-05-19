@@ -91,6 +91,8 @@ new Vue({
             lang_toggle();
         },
         window: onresize = function () {
+
+            alert('ogyhuijoklp;@ghjk');
             height_match();
             lang_toggle();
             gnavi_toggle('resize');
